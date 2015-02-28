@@ -1,0 +1,82 @@
+#:kivy 1.0.9
+
+<Dice>:
+	size: 30,30
+	canvas:
+		Rectangle:
+			pos:self.pos
+			size:self.size
+
+<HealthBar>:
+	canvas:
+		Rectangle:
+			pos:self.pos
+			size:self.size
+		Color:
+			rgba: 0, 1, 0, 1
+
+<DamageBar>:
+	canvas:
+		Rectangle:
+			pos:self.pos
+			size:self.size
+		Color:
+			rgba: 1, 0, 0, 1
+
+<HealthDisplay>:
+	size: 200, 50
+	HealthBar:
+		pos: 0, 0
+		size: self.size
+	DamageBar:
+		pos: 0, self.max_x
+		size: 0,50
+		
+
+<Character>:
+	size: 60,20
+	canvas:
+		Rectangle:
+			pos:self.pos
+			size:self.size
+
+<CombatGame>:
+	player1: player_left
+	player2: player_right
+	player1HealthBar: healthbar_left
+	player2HealthBar: healthbar_right
+	
+	canvas:
+		Rectangle:
+			pos: self.center_y-30, 0
+			size: self.width, 10
+			
+	Character:
+		id: player_left
+		x: root.x+10
+		center_y: root.center_y
+
+	Character:
+		id: player_right
+		x: root.width-10-self.width
+		center_y: root.center_y
+	
+	HealthDisplay:
+		id: healthbar_left
+		x: 50
+		center_y: 500
+
+	HealthDisplay:
+		id: healthbar_right
+		x: 500
+		center_y: 500
+		
+	
+
+
+
+
+
+
+
+
