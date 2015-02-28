@@ -7,30 +7,21 @@
 			pos:self.pos
 			size:self.size
 
-<HealthBar>:
-	canvas:
-		Rectangle:
-			pos:self.pos
-			size:self.size
-		Color:
-			rgba: 0, 1, 0, 1
-
-<DamageBar>:
-	canvas:
-		Rectangle:
-			pos:self.pos
-			size:self.size
-		Color:
-			rgba: 1, 0, 0, 1
-
 <HealthDisplay>:
 	size: 200, 50
-	HealthBar:
-		pos: 0, 0
-		size: self.size
-	DamageBar:
-		pos: 0, self.max_x
-		size: 0,50
+	canvas:
+		Rectangle:
+			id: health
+			pos: 0, 0
+			size: self.size
+			Color:
+				rgba: 0, 1, 0, 1
+		Rectangle:
+			id: fill
+			pos: 0, self.width
+			size: 0, self.top
+			Color:
+				rgba: 1,0,0,1
 		
 
 <Character>:
@@ -65,6 +56,7 @@
 		id: healthbar_left
 		x: 50
 		center_y: 500
+
 
 	HealthDisplay:
 		id: healthbar_right
